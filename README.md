@@ -1,6 +1,8 @@
 ﻿# Marlin 3D Printer Firmware
 
-This is Marlin 2.0 tracking the bugfix branch, with modifications for SKR Mini E3 v1.2, EZABL Sensor, BTT TFT3.5 v3.0 and the Ender 3 base machine.
+This is Marlin 2.0 tracking the bugfix branch.
+
+This build supports 512K size for the STM32 SKR Mini v1.2 with TMC2209 Drivers, BTT TFT 3.5 v3.0 with filament sensor, Titan Aero Hotend, and EZABL Sensor.
 
 [![Build Status](https://travis-ci.org/MarlinFirmware/Marlin.svg?branch=2.0.x)](https://travis-ci.org/MarlinFirmware/Marlin)
 ![GitHub](https://img.shields.io/github/license/marlinfirmware/marlin.svg)
