@@ -285,7 +285,23 @@ void GcodeSuite::G28(const bool always_home_all) {
       if (DEBUGGING(LEVELING)) debug_current("Y2", tmc_save_current_Y2, Y2_CURRENT_HOME);
     #endif
   #endif
-
+   
+  #ifdef SENSORLESS_HOMING
+    #if X_DRIVER_TYPE == TMC2209
+      bool x_driver_mode = stepperX.get_stealthChop_status();
+      process_subcommands_now_P(PSTR("M569 S1 X"));
+    #endif
+    #if Y_DRIVER_TYPE == TMC2209
+      bool y_driver_mode = stepperY.get_stealthChop_status();
+      process_subcommands_now_P(PSTR("M569 S1 Y"));
+    #endif
+  #endif
+  #ifdef SENSORLESS_PROBING
+    #if Z_DRIVER_TYPE == TMC2209
+      bool z_driver_mode = stepperZ.get_stealthChop_status();
+      process_subcommands_now_P(PSTR("M569 S1 Z"));
+    #endif
+  #endif
   #if BOTH(STEALTHCHOP_XY, HOME_USING_SPREADCYCLE)
     if (DEBUGGING(LEVELING)) DEBUG_ECHOLNPGM("Set XY to spreadCycle...");
     process_subcommands_now_P(PSTR("M569S0XY"));
@@ -543,4 +559,32 @@ void GcodeSuite::G28(const bool always_home_all) {
       L6470.set_param(cv, L6470_ABS_POS, stepper.position((AxisEnum)L6470.axis_xref[cv]));
     }
   #endif
+  
+  #ifdef SENSORLESS_HOMING
+    #if X_DRIVER_TYPE == TMC2209
+      if (x_driver_mode) {
+        process_subcommands_now_P(PSTR("M569 S1 X"));
+      } else {
+        process_subcommands_now_P(PSTR("M569 S0 X"));
+      }
+    #endif
+    #if Y_DRIVER_TYPE == TMC2209
+      if (y_driver_mode) {
+        process_subcommands_now_P(PSTR("M569 S1 Y"));
+      } else {
+        process_subcommands_now_P(PSTR("M569 S0 Y"));
+      }
+    #endif
+  #endif
+
+  #ifdef SENSORLESS_PROBING
+    #if Z_DRIVER_TYPE == TMC2209
+      if (z_driver_mode) {
+        process_subcommands_now_P(PSTR("M569 S1 Z"));
+      } else {
+        process_subcommands_now_P(PSTR("M569 S0 Z"));
+      }
+    #endif
+  #endif
+
 }
