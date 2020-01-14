@@ -1026,7 +1026,7 @@
 // Invert the stepper direction. Change (or reverse the motor connector) if an axis goes the wrong way.
 #define INVERT_X_DIR true
 #define INVERT_Y_DIR true
-#define INVERT_Z_DIR false
+#define INVERT_Z_DIR true
 
 // @section extruder
 
@@ -1060,7 +1060,7 @@
 #define Y_BED_SIZE 235
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
-#define X_MIN_POS -22
+#define X_MIN_POS -52
 #define Y_MIN_POS 0
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
