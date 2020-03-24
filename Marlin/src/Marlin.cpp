@@ -848,9 +848,7 @@ void setup() {
     #endif
   #endif
 
-  #if HAS_FILAMENT_SENSOR
-    runout.setup();
-  #endif
+ 
 
   #if ENABLED(POWER_LOSS_RECOVERY)
     recovery.setup();
@@ -886,6 +884,10 @@ void setup() {
 
   SERIAL_ECHOLNPGM("start");
   SERIAL_ECHO_START();
+
+   #if HAS_FILAMENT_SENSOR
+    runout.setup();
+  #endif
 
   #if TMC_HAS_SPI
     #if DISABLED(TMC_USE_SW_SPI)
