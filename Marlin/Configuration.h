@@ -1066,7 +1066,15 @@
 #define Y_BED_SIZE 235
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
+<<<<<<< HEAD
 #define X_MIN_POS 0
+=======
+<<<<<<< HEAD
+#define X_MIN_POS 0
+=======
+#define X_MIN_POS -52
+>>>>>>> 521d19b48f49eccafe2273469570a8d52c7f3aed
+>>>>>>> 80908b5472600395b1df657db6ef72ebb8a0ab71
 #define Y_MIN_POS 0
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
@@ -1174,8 +1182,8 @@
  */
 //#define AUTO_BED_LEVELING_3POINT
 //#define AUTO_BED_LEVELING_LINEAR
-#define AUTO_BED_LEVELING_BILINEAR
-//#define AUTO_BED_LEVELING_UBL
+//#define AUTO_BED_LEVELING_BILINEAR
+#define AUTO_BED_LEVELING_UBL
 //#define MESH_BED_LEVELING
 
 /**
@@ -1312,8 +1320,13 @@
 
 // Manually set the home position. Leave these undefined for automatic settings.
 // For DELTA this is the top-center of the Cartesian print volume.
+<<<<<<< HEAD
 #define MANUAL_X_HOME_POS  -23
 #define MANUAL_Y_HOME_POS -28
+=======
+#define MANUAL_X_HOME_POS -52
+//#define MANUAL_Y_HOME_POS 0
+>>>>>>> 80908b5472600395b1df657db6ef72ebb8a0ab71
 //#define MANUAL_Z_HOME_POS 0
 
 // Use "Z Safe Homing" to avoid homing with a Z probe outside the bed area.
